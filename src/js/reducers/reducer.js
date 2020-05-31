@@ -1,6 +1,9 @@
 const initialState = {
     items: {
 
+    },
+    totals: {
+        
     }
 }
 

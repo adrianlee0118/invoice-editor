@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import store from './store';
-import Form from './js/components/Form';
+import Invoice from './js/components/Invoice';
 
 const app = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>
-        <Form/>
+        <Invoice/>
     </Provider>,
     app
 );
