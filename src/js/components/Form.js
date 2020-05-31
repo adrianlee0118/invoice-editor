@@ -33,6 +33,3 @@ class Form extends Component {
 }
 
 export default Form;
-
-const wrapper = document.getElementById("container");
-warpper ? ReactDOM.render(<Form />, wrapper) : false;
