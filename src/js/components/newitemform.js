@@ -13,7 +13,7 @@ import TrashIcon from "material-ui/svg-icons/action/delete";
 import { deleteItem } from "../actions/actions";
 
 
-export const NewItemForm = ({ listItems, dispatch }) => {
+export class NewItemForm extends React.Component{
     handleChangeItem = (event) => {
         const { value } = event.target;
         if (/\d/.test(value)) {
