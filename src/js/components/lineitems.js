@@ -16,7 +16,7 @@ export const LineItems = ({ listItems, dispatch }) => {
   const handleRemove = (position) => dispatch(deleteItem(position));
 
   return (
-    <Table height="320px">
+    <Table height="400px">
       <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
         <TableRow>
           <TableHeaderColumn>Item</TableHeaderColumn>
