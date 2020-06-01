@@ -11,13 +11,14 @@ const style = {
     flexDirection: 'row',
 };
 
-const FormContainer = () => (
+const InvoiceContainer = () => (
     <div style={style}>
         <Paper>
             <LineItems />
+            <NewItemForm />
             <Totals />
         </Paper>
     </div>
 );
 
-export default FormContainer;
+export default InvoiceContainer;
