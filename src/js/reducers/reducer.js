@@ -1,3 +1,4 @@
+
 const initialState = {
     items: {
         items: []
@@ -7,7 +8,7 @@ const initialState = {
         tax: 0,
         total: 0
     }
-}
+};
 
 function reducer(state = initialState, action) {
     switch (action.type) {
@@ -48,6 +49,6 @@ function reducer(state = initialState, action) {
         default:
             return state;
     }
-}
+};
 
 export default reducer;

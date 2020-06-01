@@ -75,7 +75,7 @@ class Invoice extends Component {
                 <input 
                   type='text' 
                   onChange={this.SetName}
-                  value={this.state.name}
+                  defaultValue={this.state.name}
                   placeholder='new item'
                 />
               </td>
@@ -84,14 +84,14 @@ class Invoice extends Component {
                   type='number'
                   onChange={this.SetQuantity}
                   placeholder={0}
-                  value={this.state.quantity}/>
+                  defaultValue={this.state.quantity}/>
               </td>
               <td>
                 <input
                   type='number'
                   onChange={this.SetPrice}
                   placeholder={0}
-                  value={this.state.price}
+                  defaultValue={this.state.price}
                 />
               </td>
               <td class ='text-right'>
