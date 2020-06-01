@@ -32,25 +32,37 @@ class Invoice extends Component {
     this.props.dispatch(deleteItem(index));
   }
 
-  SetName(event){
-    this.setState({ name: event.target.value });
-  }
+  SetName = (event) => {
+    const { value } = event.target;
+    if (/\d/.test(value)) {
+      // Handle error
+    }
+    this.setState({ name: value });
+  };
 
-  SetQuantity(event) {
-    var qty = Math.round(event.target.value);
+  SetQuantity = (event) => {
+    const { value } = event.target;
+    if (isNaN(value)) {
+      //handle error
+    }
+    //var qty = Math.round(event.target.value);
     this.setState({
-      price: price,
+      quantity: value,
       total: this.state.quantity*price
     });
-  }
+  };
 
-  SetPrice(event){
-    var price = Number(event.target.value);
+  SetPrice = (event) => {
+    const { value } = event.target;
+    if (isNaN(value)) {
+      //handle error
+    }
+    //var price = Number(event.target.value);
     this.setState({
-      price: price,
+      price: value,
       total: this.state.quantity*price
     });
-  }
+  };
 
   render() {
     return (
@@ -75,8 +87,8 @@ class Invoice extends Component {
                 <input 
                   type='text' 
                   onChange={this.SetName}
-                  defaultValue={this.state.name}
                   placeholder='new item'
+                  value={this.state.name}
                 />
               </td>
               <td>
@@ -84,14 +96,14 @@ class Invoice extends Component {
                   type='number'
                   onChange={this.SetQuantity}
                   placeholder={0}
-                  defaultValue={this.state.quantity}/>
+                  value={this.state.quantity}/>
               </td>
               <td>
                 <input
                   type='number'
                   onChange={this.SetPrice}
                   placeholder={0}
-                  defaultValue={this.state.price}
+                  value={this.state.price}
                 />
               </td>
               <td class ='text-right'>
