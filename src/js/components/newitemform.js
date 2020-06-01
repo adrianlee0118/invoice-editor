@@ -11,3 +11,46 @@ import {
 } from "material-ui/Table";
 import TrashIcon from "material-ui/svg-icons/action/delete";
 import { deleteItem } from "../actions/actions";
+
+
+export const NewItemForm = ({ listItems, dispatch }) => {
+    handleChangeItem = (event) => {
+        const { value } = event.target;
+        if (/\d/.test(value)) {
+          //Handle error
+        }
+    
+        return this.setState({
+          item: value,
+        });
+    };
+  
+    return (
+      <Table height="320px">
+        <TableBody displayRowCheckbox={false}>
+
+            <TableRow key={index}>
+              <TableRowColumn>{element.item}</TableRowColumn>
+              <TableRowColumn>{element.qty}</TableRowColumn>
+              <TableRowColumn>{`$${element.price}`}</TableRowColumn>
+              <TableRowColumn>{`$${element.total}`}</TableRowColumn>
+              <TableRowColumn style={{ width: 15 }}>
+                <TrashIcon
+                  style={{ width: 18, height: 18 }}
+                  onClick={() => handleRemove(index)}
+                  hoverColor="blue"
+                />
+              </TableRowColumn>
+            </TableRow>
+
+        </TableBody>
+      </Table>
+    );
+  };
+
+
+NewItemForm.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+};
+  
+export default connect()(NewItemForm);
