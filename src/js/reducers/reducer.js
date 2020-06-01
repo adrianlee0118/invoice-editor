@@ -10,9 +10,9 @@ const initialState = {
     }
 };
 
-function reducer(state = initialState, action) {
+const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD':
+        case 'ADD_ITEM':
             updatedItems = [...state.items.items, action.payload];
             subtotal = updatedItems.reduce((sum, item) => {
                 return sum + item.total
@@ -27,9 +27,9 @@ function reducer(state = initialState, action) {
                     total: subtotal * 1.05
                 }
             };
-        case 'EDIT':
+        case 'EDIT_ITEM':
             return state;
-        case 'DELETE':
+        case 'DELETE_ITEM':
             updatedItems = state.items.items.filter((item, index) =>
                 index != action.payload.index
             );
