@@ -1,3 +1,4 @@
+import { ADD_ITEM, DELETE_ITEM, EDIT_ITEM } from '../actions/actions';
 
 const initialState = {
     items: {
@@ -12,7 +13,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'ADD_ITEM':
+        case ADD_ITEM:
             updatedItems = [...state.items.items, action.payload];
             subtotal = updatedItems.reduce((sum, item) => {
                 return sum + item.total
@@ -27,10 +28,10 @@ const reducer = (state = initialState, action) => {
                     total: subtotal * 1.05
                 }
             };
-        case 'EDIT_ITEM':
+        case EDIT_ITEM:
             return state;
-        case 'DELETE_ITEM':
-            updatedItems = state.items.items.filter((item, index) =>
+        case DELETE_ITEM:
+            updatedItems = state.items.items.filter((item, index) =>    //should be (item => item.index != action.payload.index)
                 index != action.payload.index
             );
             subtotal = newItems.reduce((sum,item) => {
