@@ -19,6 +19,9 @@ const styles = {
   },
 };
 
+/*
+  An auxiliary, miniature table displaying subTotal, tax and total value of all purchases stored in the state and listed in LineItems.
+*/
 export const Totals = ({ subTotal, tax, total }) => (
   <div style={styles.container}>
     <div style={styles.totalsContainer}>
@@ -42,6 +45,9 @@ export const Totals = ({ subTotal, tax, total }) => (
   </div>
 );
 
+/*
+  Enable Totals to access the state from the redux store via props--required to display subTotal, tax and total.
+*/
 const mapStateToProps = (store) => {
   return {
     subTotal: store.invoiceReducer.subTotal,
@@ -50,4 +56,7 @@ const mapStateToProps = (store) => {
   };
 };
 
+/*
+  Connect Totals to the redux store where the state is.
+*/
 export default connect(mapStateToProps)(Totals);

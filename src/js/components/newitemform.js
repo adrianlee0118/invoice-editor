@@ -7,13 +7,14 @@ import {
   TableRow,
   TableRowColumn,
   TextField,
+  FloatingActionButton
 } from "material-ui/Table";
-import AddBoxIcon from '@material-ui/icons/AddBox';
 import { addItem } from "../actions/actions";
 
 
 /*
     NewItemForm component exists as a class so that it can have its own internal state consisting of the particulars of a new item to be added.
+    Its appearance is just that of an empty row with input capability extending from the bottom of the table formed by the LineItems function component.
 */
 export class NewItemForm extends React.Component {
   constructor(props) {
@@ -110,13 +111,15 @@ export class NewItemForm extends React.Component {
                     onChange={this.handleChangePrice}
                 />
             </TableRowColumn>
-            <TableRowColumn>{`$${element.total}`}</TableRowColumn>
+            <TableRowColumn>
+                {this.state.total}
+            </TableRowColumn>
             <TableRowColumn style={{ width: 15 }}>
-              <TrashIcon
-                style={{ width: 18, height: 18 }}
-                onClick={() => handleRemove(index)}
-                hoverColor="blue"
-              />
+                <FloatingActionButton
+                    onClick={this.handleSubmit}
+                >
+                    <ContentAdd />
+                </FloatingActionButton>
             </TableRowColumn>
           </TableRow>
         </TableBody>

@@ -12,6 +12,10 @@ import {
 import TrashIcon from "material-ui/svg-icons/action/delete";
 import { deleteItem } from "../actions/actions";
 
+/*
+  Function component that renders a table displaying all items currently stored in state.
+  Columns show Item, Quantity (Qty), Price and Total, with a fifth column containing a delete button for that line item.
+*/
 export const LineItems = ({ listItems, dispatch }) => {
   const handleRemove = (position) => dispatch(deleteItem(position));
 
@@ -47,6 +51,9 @@ export const LineItems = ({ listItems, dispatch }) => {
   );
 };
 
+/*
+  Enable LineItems to access the state from the redux store via props--required to display all line items.
+*/
 const mapStateToProps = (store) => {
   return {
     listItems: store.invoiceReducer.listItems,
@@ -58,4 +65,7 @@ LineItems.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
+/*
+  Connect LineItems to the redux store where the state is
+*/
 export default connect(mapStateToProps)(LineItems);
