@@ -22,6 +22,7 @@ export class NewItemForm extends React.Component {
       item: "",
       qty: "",
       price: "",
+      total: '',
       errorItem: "",
       errorQty: "",
       errorPrice: "",
@@ -48,6 +49,7 @@ export class NewItemForm extends React.Component {
 
     return this.setState({
       qty: value,
+      total: value*this.state.price,
       errorQty: '',
     });
   };
@@ -59,19 +61,20 @@ export class NewItemForm extends React.Component {
     }
     return this.setState({
       price: value,
+      total: this.state.qty*value,
       errorPrice: '',
     });
   };
 
   handleSubmit = () => {
-    const { item, qty, price } = this.state;
-    const total = price*qty;
+    const { item, qty, price, total } = this.state;
     const { dispatch } = this.props;
     if (item && qty && price) {
       this.setState({
         item: '',
         qty: '',
         price: '',
+        total: '',
       });
       dispatch(addItem({ item, qty, price, total }));
     }
@@ -82,9 +85,31 @@ export class NewItemForm extends React.Component {
       <Table height="45px">
         <TableBody displayRowCheckbox={false}>
           <TableRow>
-            <TableRowColumn>{element.item}</TableRowColumn>
-            <TableRowColumn>{element.qty}</TableRowColumn>
-            <TableRowColumn>{`$${element.price}`}</TableRowColumn>
+            <TableRowColumn>
+                <TextField
+                    fullWidth={true}
+                    id="item-field"
+                    value={this.state.item}
+                    errorText={this.state.errorItem}
+                    onChange={this.handleChangeItem}
+                />
+            </TableRowColumn>
+            <TableRowColumn>
+                <TextField
+                    id="qty-field"
+                    value={this.state.qty}
+                    errorText={this.state.errorQty}
+                    onChange={this.handleChangeQty}
+                />
+            </TableRowColumn>
+            <TableRowColumn>
+                <TextField
+                    id="price-field"
+                    value={this.state.price}
+                    errorText={this.state.errorPrice}
+                    onChange={this.handleChangePrice}
+                />
+            </TableRowColumn>
             <TableRowColumn>{`$${element.total}`}</TableRowColumn>
             <TableRowColumn style={{ width: 15 }}>
               <TrashIcon
