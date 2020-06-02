@@ -12,7 +12,7 @@ import {
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import ContentRemove from 'material-ui/svg-icons/content/remove';
 
-import { submitItem } from '../actions';
+import { submitItem } from '../actions/actions';
 
 
 const styles = {

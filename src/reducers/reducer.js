@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_NEW_ITEM, CALCULATE_TAX_TOTAL, REMOVE_ITEM } from './actions';
+import { ADD_NEW_ITEM, CALCULATE_TAX_TOTAL, REMOVE_ITEM } from '../actions/actions';
 
 const initalState = {
   listItems: [],

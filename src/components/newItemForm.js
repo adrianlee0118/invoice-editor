@@ -9,7 +9,7 @@ import {
   TextField,
   FloatingActionButton
 } from "material-ui/Table";
-import { submitItem } from "../actions";
+import { submitItem } from "../actions/actions";
 
 /*
     NewItemForm component exists as a class so that it can have its own internal state consisting of the particulars of a new item to be added.

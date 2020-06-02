@@ -10,7 +10,7 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 import TrashIcon from 'material-ui/svg-icons/action/delete';
-import { deleteItem } from '../actions';
+import { deleteItem } from '../actions/actions';
 
 
 export const LineItems = ({ listItems, dispatch }) => {
