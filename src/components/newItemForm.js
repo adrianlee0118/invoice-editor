@@ -37,7 +37,7 @@ export class InputInvoice extends React.Component {
   handleChangeItem = (event) => {
     const { value } = event.target;
     if (/\d/.test(value)) {
-      return this.setState({ errorItem: "names can only contain letters" });
+      return this.setState({ errorItem: "Please enter letters" });
     }
 
     return this.setState({
