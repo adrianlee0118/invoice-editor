@@ -1,15 +1,14 @@
-export const ADD_ITEM = 'ADD_ITEM';
-export const DELETE_ITEM = 'DELETE_ITEM';
+export const ADD_NEW_ITEM = 'ADD_NEW_ITEM';
 export const EDIT_ITEM = 'EDIT_ITEM';
 
-const addItem = (name, quantity, price, total) => {
+const addItem = (itemData) => {
     return {
-        type: ADD_ITEM,
-        payload: {name, quantity, price, total}
+        type: ADD_NEW_ITEM,
+        itemData,
     };
 };
 
-const deleteItem = (index) => {
+const removeItem = (position) => {
     return {
         type: DELETE_ITEM,
         payload: {index}

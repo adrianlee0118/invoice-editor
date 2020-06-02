@@ -11,7 +11,6 @@ import {
 } from "material-ui/Table";
 import { addItem } from "../actions/actions";
 
-
 /*
     NewItemForm component exists as a class so that it can have its own internal state consisting of the particulars of a new item to be added.
     Its appearance is just that of an empty row with input capability extending from the bottom of the table formed by the LineItems function component.
@@ -133,6 +132,7 @@ NewItemForm.propTypes = {
 };
 
 /*
-    Connect to Redux store, no need for map state to props because NewItemForm does not need to access the state
+    Connect to Redux store, no need for map state to props because NewItemForm does not need to access the state.
+    It only uses dispatch to change the state by adding items.
 */
 export default connect()(NewItemForm);
