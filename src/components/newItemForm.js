@@ -17,21 +17,9 @@ import { submitItem } from "../actions/actions";
 import { ContentAddCircle } from "material-ui/svg-icons";
 
 const styles = {
-  container: {
-    textAlign: "left",
-    display: "flex-inline",
-    flexDirection: "row",
-  },
   paper: {
     height: 70,
-  },
-  buttonsContainer: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    marginTop: 10,
-  },
+  }
 };
 
 export class InputInvoice extends React.Component {
