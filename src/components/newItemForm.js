@@ -21,6 +21,10 @@ const styles = {
   }
 };
 
+/*
+ * Renders the input line in the invoice.
+ * This child component exists as a class so that it can have its own state for storing input information for the new line item.
+*/
 export class InputInvoice extends React.Component {
   constructor(props) {
     super(props);

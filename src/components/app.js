@@ -16,6 +16,9 @@ const styles = {
   },
 };
 
+/**
+ * Renders the main parent component for the React Invoice Editor application.
+ */
 const App = () => (
   <div style={styles.mainContainer}>
     <NavBar />

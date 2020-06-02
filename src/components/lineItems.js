@@ -24,6 +24,9 @@ const lineStyle = {
   color: '#008080'
 }
 
+/*
+ * Renders the store line items portion of the invoice.
+*/
 export const LineItems = ({ listItems, dispatch }) => {
   const handleRemove = position => dispatch(deleteItem(position));
 

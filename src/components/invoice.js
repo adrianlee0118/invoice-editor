@@ -12,6 +12,9 @@ const style = {
   flexDirection: 'row',
 };
 
+/**
+* Combines child components on one layout.
+*/
 const Invoice = () => (
   <div style={style}>
     <Paper>

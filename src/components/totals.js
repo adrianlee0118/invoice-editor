@@ -31,6 +31,9 @@ const styles = {
   }
 };
 
+/*
+ * Renders the totals section of the invoice.
+*/
 export const Totals = ({ subTotal, tax, total }) => (
   <div style={styles.container}>
     <div style={styles.totalsContainer}>

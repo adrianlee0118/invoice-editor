@@ -8,7 +8,9 @@ const initalState = {
   total: null,
 };
 
-
+/**
+ * Handle actions/events related to the invoice line items.
+ */
 const invoiceReducer = (state = initalState, action) => {
   switch (action.type) {
     case ADD_NEW_ITEM:
@@ -23,7 +25,6 @@ const invoiceReducer = (state = initalState, action) => {
         listItems: state.listItems.filter((item, index) => index !== action.position),
       };
 
-    // eslint-disable-next-line
     case CALCULATE_TAX_TOTAL:
       const subTotal = state.listItems.reduce((acc, item) => acc + item.total, 0);
       const tax = Number(((subTotal / 100) * 5).toFixed(2));
