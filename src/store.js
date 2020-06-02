@@ -11,6 +11,9 @@ import App from "./components/app";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
+/*
+    Wrapper for app to provide Redux store data and add color theme styling.
+*/
 export default () => (
   <Provider store={store}>
     <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
