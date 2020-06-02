@@ -25,6 +25,10 @@ const styles = {
   headings: {
     fontWeight: 'bold',
   },
+  values: {
+    fontWeight: 'bold',
+    color: '#816687'
+  }
 };
 
 export const Totals = ({ subTotal, tax, total }) => (
@@ -34,15 +38,15 @@ export const Totals = ({ subTotal, tax, total }) => (
         <TableBody displayRowCheckbox={false}>
           <TableRow >
             <TableRowColumn style={styles.headings} >Subtotal</TableRowColumn>
-            <TableRowColumn>{subTotal ? subTotal.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
+            <TableRowColumn style={styles.values} >{subTotal ? subTotal.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn style={styles.headings} >Tax (5%)</TableRowColumn>
-            <TableRowColumn>{tax ? tax.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
+            <TableRowColumn style={styles.values} >{tax ? tax.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
           </TableRow>
           <TableRow>
             <TableRowColumn style={styles.headings} >Total</TableRowColumn>
-            <TableRowColumn>{total ? total.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
+            <TableRowColumn style={styles.values} >{total ? total.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
           </TableRow>
         </TableBody>
       </Table>
