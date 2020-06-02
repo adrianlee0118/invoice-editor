@@ -15,12 +15,15 @@ const styles = {
     margin: '10px 20px 0px 20px',
   },
   totalsContainer: {
-    width: 200,
+    width: 400,
     height: 160,
     margin: '0px 30px 10px 0px',
     borderWidth: 2,
     borderStyle: 'solid',
     borderRadius: 5,
+  },
+  headings: {
+    fontWeight: 'bold',
   },
 };
 
@@ -30,16 +33,16 @@ export const Totals = ({ subTotal, tax, total }) => (
       <Table>
         <TableBody displayRowCheckbox={false}>
           <TableRow >
-            <TableRowColumn>Subtotal</TableRowColumn>
-            <TableRowColumn>{subTotal ? `$${subTotal}` : '$'}</TableRowColumn>
+            <TableRowColumn style={styles.headings} >Subtotal</TableRowColumn>
+            <TableRowColumn>{subTotal ? subTotal.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
           </TableRow>
           <TableRow>
-            <TableRowColumn>Tax (5%)</TableRowColumn>
-            <TableRowColumn>{tax ? `$${tax}` : '$'}</TableRowColumn>
+            <TableRowColumn style={styles.headings} >Tax (5%)</TableRowColumn>
+            <TableRowColumn>{tax ? tax.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
           </TableRow>
           <TableRow>
-            <TableRowColumn>Total</TableRowColumn>
-            <TableRowColumn>{total ? `$${total}` : '$'}</TableRowColumn>
+            <TableRowColumn style={styles.headings} >Total</TableRowColumn>
+            <TableRowColumn>{total ? total.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
           </TableRow>
         </TableBody>
       </Table>
