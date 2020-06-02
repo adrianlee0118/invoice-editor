@@ -12,6 +12,9 @@ const style = {
     flexDirection: 'row',
 };
 
+/*
+    The main panel structure that houses all of the function and React components of the app.
+*/
 const InvoiceContainer = () => (
     <div style={style}>
         <Paper>

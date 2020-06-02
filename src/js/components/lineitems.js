@@ -60,6 +60,9 @@ const mapStateToProps = (store) => {
   };
 };
 
+/*
+  Type checking data validation for props.
+*/
 LineItems.propTypes = {
   listItems: PropTypes.array.isRequired,
   dispatch: PropTypes.func.isRequired,

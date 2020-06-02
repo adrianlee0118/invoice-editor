@@ -127,6 +127,9 @@ export class NewItemForm extends React.Component {
   }
 }
 
+/*
+  Type checking data validation for props.
+*/
 NewItemForm.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
