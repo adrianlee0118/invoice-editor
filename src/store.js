@@ -26,7 +26,6 @@ const theme = createMuiTheme({
   },
 });
 
-// App
 export default () => (
   <Provider store={store}>
     <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
