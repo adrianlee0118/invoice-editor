@@ -9,24 +9,22 @@ import {
   TextField,
   FloatingActionButton
 } from "material-ui/Table";
-import { submitItem } from "../actions/actions";
+import { submitItem } from "../actions";
 
 /*
     NewItemForm component exists as a class so that it can have its own internal state consisting of the particulars of a new item to be added.
     Its appearance is just that of an empty row with input capability extending from the bottom of the table formed by the LineItems function component.
 */
 export class NewItemForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      item: "",
-      qty: "",
-      price: "",
-      errorItem: "",
-      errorQty: "",
-      errorPrice: "",
-    };
-  }
+  
+  state = {
+    item: "",
+    qty: "",
+    price: "",
+    errorItem: "",
+    errorQty: "",
+    errorPrice: "",
+  };
 
   handleChangeItem = (event) => {
     const { value } = event.target;
