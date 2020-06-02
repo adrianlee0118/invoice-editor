@@ -1,7 +1,7 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
-import LineItems from './lineitems';
-import NewItemForm from './newitemform';
+import LineItems from './lineItems';
+import NewItemForm from './newItemForm';
 import Totals from './totals';
 
 const style = {
