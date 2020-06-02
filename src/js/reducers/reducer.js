@@ -20,7 +20,7 @@ const invoiceReducer = (state = initalState, action) => {
           ...state,
           listItems: state.listItems.filter((item, index) => index !== action.position),
         };
-  
+
       case CALCULATE_TAX_TOTAL:
         const subTotal = state.listItems.reduce((acc, item) => acc + item.total, 0);
         const tax = Number(((subTotal / 100) * 5).toFixed(2));
