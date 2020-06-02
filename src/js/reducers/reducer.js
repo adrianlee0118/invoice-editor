@@ -1,14 +1,10 @@
 import { ADD_NEW_ITEM, CALCULATE_TAX_TOTAL, REMOVE_ITEM } from '../actions/actions';
 
-const initialState = {
-    items: {
-        items: []
-    },
-    totals: {
-        subtotal: 0,
-        tax: 0,
-        total: 0
-    }
+const initalState = {
+    listItems: [],
+    subTotal: null,
+    tax: null,
+    total: null,
 };
 
 const reducer = (state = initialState, action) => {
