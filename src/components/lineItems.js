@@ -12,6 +12,17 @@ import {
 import TrashIcon from 'material-ui/svg-icons/action/delete';
 import { deleteItem } from '../actions/actions';
 
+const headerStyle = {
+  fontSize: '20px', 
+  fontWeight: "bold", 
+  color: '#000000'
+}
+
+const lineStyle = {
+  fontSize: '20px',
+  fontWeight: "400", 
+  color: '#008080'
+}
 
 export const LineItems = ({ listItems, dispatch }) => {
   const handleRemove = position => dispatch(deleteItem(position));
@@ -22,14 +33,15 @@ export const LineItems = ({ listItems, dispatch }) => {
       wordWrap: "break-word"
     }} >
       <TableHeader
+        style={{ background: '#d3d3d3', height: '50px' }}
         displaySelectAll={false}
         adjustForCheckbox={false}
       >
-        <TableRow >
-          <TableHeaderColumn>Item</TableHeaderColumn>
-          <TableHeaderColumn>Qty</TableHeaderColumn>
-          <TableHeaderColumn>Price</TableHeaderColumn>
-          <TableHeaderColumn>Total</TableHeaderColumn>
+        <TableRow>
+          <TableHeaderColumn style={headerStyle} >Item</TableHeaderColumn>
+          <TableHeaderColumn style={headerStyle} >Qty</TableHeaderColumn>
+          <TableHeaderColumn style={headerStyle} >Price</TableHeaderColumn>
+          <TableHeaderColumn style={headerStyle} >Total</TableHeaderColumn>
           <TableHeaderColumn style={{ width: 15 }} />
         </TableRow>
       </TableHeader>
@@ -37,10 +49,10 @@ export const LineItems = ({ listItems, dispatch }) => {
         {listItems.map((element, index) => (
           /* eslint-disable-next-line */
           <TableRow key={index}>
-            <TableRowColumn>{element.item}</TableRowColumn>
-            <TableRowColumn>{element.qty}</TableRowColumn>
-            <TableRowColumn>{`$${element.price}`}</TableRowColumn>
-            <TableRowColumn>{`$${element.total}`}</TableRowColumn>
+            <TableRowColumn style={lineStyle} >{element.item}</TableRowColumn>
+            <TableRowColumn style={lineStyle} >{element.qty}</TableRowColumn>
+            <TableRowColumn style={lineStyle} >{`$${element.price}`}</TableRowColumn>
+            <TableRowColumn style={lineStyle} >{`$${element.total}`}</TableRowColumn>
             <TableRowColumn style={{ width: 15 }}>
               <TrashIcon
                 style={{ width: 18, height: 18 }}
