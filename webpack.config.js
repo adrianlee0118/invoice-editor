@@ -20,6 +20,7 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   output: {
+    // eslint-disable-next-line
     path: __dirname + '/dist',
     publicPath: '/',
     filename: 'bundle.js',
