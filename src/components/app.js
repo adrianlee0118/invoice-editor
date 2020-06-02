@@ -1,7 +1,6 @@
 import React from 'react';
 import NavBar from './navBar';
 import Invoice from './invoice';
-import InputContainer from './newItemForm';
 
 const styles = {
   mainContainer: {
@@ -22,7 +21,6 @@ const App = () => (
     <NavBar />
     <div style={styles.invoiceContainer}>
       <Invoice />
-      
     </div>
   </div>
 );
