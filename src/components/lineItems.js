@@ -50,7 +50,6 @@ export const LineItems = ({ listItems, dispatch }) => {
       </TableHeader>
       <TableBody displayRowCheckbox={false}>
         {listItems.map((element, index) => (
-          /* eslint-disable-next-line */
           <TableRow key={index}>
             <TableRowColumn style={lineStyle} >{element.item}</TableRowColumn>
             <TableRowColumn style={lineStyle} >{element.qty}</TableRowColumn>
