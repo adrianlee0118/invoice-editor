@@ -6,7 +6,7 @@ import Totals from './totals';
 
 const style = {
     height: 600,
-    width = 700,
+    width: 700,
     marginTop: 100,
     display: 'flex-inline',
     flexDirection: 'row',
