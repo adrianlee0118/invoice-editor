@@ -1,49 +1,64 @@
 {
   "name": "invoice-editor",
   "version": "1.0.0",
-  "description": "Invoice Editor React app with Redux and Webpack",
+  "description": "Basic editor that allows adding items and calculate subtotal, taxes and total.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "lint": "eslint src"
   },
   "keywords": [],
   "author": "Adrian Lee",
   "license": "GNU",
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/plugin-proposal-class-properties": "^7.10.1",
-    "@babel/preset-env": "^7.10.2",
-    "@babel/preset-react": "^7.10.1",
-    "@material-ui/core": "^4.10.1",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
+    "@material-ui/core": "^1.1.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^22.4.4",
+    "babel-loader": "^7.1.4",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "eslint": "^7.1.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-flowtype": "^5.1.3",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.20.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-flowtype": "^2.46.3",
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
+    "jest": "^26.0.1",
+    "jest-cli": "^26.0.1",
     "react-addons-test-utils": "^15.6.2",
-    "redux-mock-store": "^1.5.4",
-    "regenerator-runtime": "^0.13.5",
+    "redux-mock-store": "^1.5.1",
+    "regenerator-runtime": "^0.11.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "material-ui": "^0.20.2",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
+    "coveralls": "^3.0.1",
+    "material-ui": "^0.20.1",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
     "react-dom": "^16.13.1",
-    "react-hot-loader": "^4.12.21",
-    "react-redux": "^7.2.0",
-    "redux": "^4.0.5",
-    "redux-devtools": "^3.5.0",
-    "redux-thunk": "^2.3.0"
-  }
+    "react-hot-loader": "^4.1.3",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-devtools": "^3.4.1",
+    "redux-thunk": "^2.2.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
+  },
+  "engines": {
+    "node": "8.9.1"
+  }    
 }

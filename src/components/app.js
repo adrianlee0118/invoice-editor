@@ -1,29 +1,28 @@
-import React from "react";
-import NavBar from "./navBar";
-import Invoice from "./invoice";
+import React from 'react';
+import NavBar from './navBar';
+import Invoice from './invoice';
+import InputContainer from './inputInvoice';
 
 const styles = {
   mainContainer: {
-    display: "flex-inline",
-    flexDirection: "row",
-    backgroundColor: "white",
-    height: "98vh",
+    display: 'flex-inline',
+    flexDirection: 'row',
+    backgroundColor: 'black',
+    height: '98vh',
   },
   invoiceContainer: {
-    display: "flex",
-    justifyContent: "space-around",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
 };
 
-/*
-    Parent application wrapping for adding styles and arranging navigation bar, Invoice on page.
-*/
 const App = () => (
   <div style={styles.mainContainer}>
     <NavBar />
     <div style={styles.invoiceContainer}>
       <Invoice />
+      <InputContainer />
     </div>
   </div>
 );

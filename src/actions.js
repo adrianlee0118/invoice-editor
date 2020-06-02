@@ -36,6 +36,7 @@ const submitItem = ({ item, qty, price }) => {
   };
 };
 
+// eslint-disable-next-line
 const deleteItem = (position) => {
   return (dispatch) => {
     dispatch(removeItem(position));

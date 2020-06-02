@@ -1,23 +1,22 @@
-import React from "react";
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import { Provider } from "react-redux";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import getMuiTheme from "material-ui/styles/getMuiTheme";
-import darkBaseTheme from "material-ui/styles/baseThemes/darkBaseTheme";
+import React from 'react';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 
-import rootReducer from "./reducers/reducer";
-import App from "./components/app";
+import rootReducer from './reducer';
+import Invoice from './components/app';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-/*
-    Wrapper for app to provide Redux store data and add color theme styling.
-*/
+// App
 export default () => (
   <Provider store={store}>
     <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
-      <App />
+      <Invoice />
     </MuiThemeProvider>
   </Provider>
 );
+
