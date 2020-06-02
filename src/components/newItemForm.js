@@ -17,7 +17,7 @@ import { ContentAddCircle } from "material-ui/svg-icons";
 
 const styles = {
   paper: {
-    height: 70,
+    height: 50,
   }
 };
 
@@ -88,7 +88,7 @@ export class InputInvoice extends React.Component {
     return (
       <div style={styles}>
         <Paper style={styles.paper}>
-          <Table height="70px">
+          <Table height="50px">
             <TableBody displayRowCheckbox={false}>
               <TableRow>
                 <TableRowColumn>
@@ -98,6 +98,7 @@ export class InputInvoice extends React.Component {
                     value={this.state.item}
                     errorText={this.state.errorItem}
                     onChange={this.handleChangeItem}
+                    placeholder="New Item"
                   />
                 </TableRowColumn>
                 <TableRowColumn>
