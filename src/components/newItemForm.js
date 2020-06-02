@@ -11,7 +11,6 @@ import {
   TableRowColumn,
   TableBody,
 } from "material-ui";
-import ContentAdd from "material-ui/svg-icons/content/add";
 
 import { submitItem } from "../actions/actions";
 import { ContentAddCircle } from "material-ui/svg-icons";
