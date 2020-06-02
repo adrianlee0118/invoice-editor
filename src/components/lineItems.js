@@ -19,7 +19,7 @@ const headerStyle = {
 }
 
 const lineStyle = {
-  fontSize: '20px',
+  fontSize: '15px',
   fontWeight: "400", 
   color: '#008080'
 }
