@@ -16,6 +16,7 @@ const Invoice = () => (
   <div style={style}>
     <Paper>
       <LineItems />
+      <NewItemForm />
       <Totals />
     </Paper>
   </div>

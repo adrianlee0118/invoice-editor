@@ -1,13 +1,13 @@
 import React from 'react';
 import NavBar from './navBar';
 import Invoice from './invoice';
-import InputContainer from './inputInvoice';
+import InputContainer from './newItemForm';
 
 const styles = {
   mainContainer: {
     display: 'flex-inline',
     flexDirection: 'row',
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     height: '98vh',
   },
   invoiceContainer: {
@@ -22,7 +22,7 @@ const App = () => (
     <NavBar />
     <div style={styles.invoiceContainer}>
       <Invoice />
-      <InputContainer />
+      
     </div>
   </div>
 );
