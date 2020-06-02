@@ -42,7 +42,6 @@
   },
   "dependencies": {
     "@material-ui/icons": "^4.9.1",
-    "@material-ui/styles": "^4.10.0",
     "coveralls": "^3.0.1",
     "material-ui": "^0.20.1",
     "prop-types": "^15.6.1",
