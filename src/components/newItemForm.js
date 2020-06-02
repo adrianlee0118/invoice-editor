@@ -126,7 +126,7 @@ export class InputInvoice extends React.Component {
                   <ContentAddCircle
                     style={{ width: 18, height: 18 }}
                     onClick={this.handleSubmit}
-                    hoverColor="green"
+                    hoverColor="#008080"
                   />
                 </TableRowColumn>
               </TableRow>
