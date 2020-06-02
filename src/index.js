@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import './css/style.css'
+import App from './store';
 
-import store from './store';
-import Invoice from './js/components/Invoice';
-
-const app = document.getElementById('app');
+/*
+    Render the App, brought in from store wrapped with provider and material-ui color theme.
+*/
 ReactDOM.render(
-    <Provider store={store}>
-        <Invoice/>
-    </Provider>,
-    app
+    <App />,
+    document.getElementById('app'),
 );
+
+/*
+    Enable hot module replacement for webpack.
+*/
+module.hot.accept();
