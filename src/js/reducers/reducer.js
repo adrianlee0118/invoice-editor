@@ -1,4 +1,4 @@
-import { ADD_ITEM, DELETE_ITEM, EDIT_ITEM } from '../actions/actions';
+import { ADD_NEW_ITEM, CALCULATE_TAX_TOTAL, REMOVE_ITEM } from '../actions/actions';
 
 const initialState = {
     items: {
