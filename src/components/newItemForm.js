@@ -9,7 +9,7 @@ import {
   TextField,
   FloatingActionButton
 } from "material-ui/Table";
-import { addItem } from "../actions/actions";
+import { submitItem } from "../actions/actions";
 
 /*
     NewItemForm component exists as a class so that it can have its own internal state consisting of the particulars of a new item to be added.
@@ -22,7 +22,6 @@ export class NewItemForm extends React.Component {
       item: "",
       qty: "",
       price: "",
-      total: '',
       errorItem: "",
       errorQty: "",
       errorPrice: "",
@@ -49,7 +48,6 @@ export class NewItemForm extends React.Component {
 
     return this.setState({
       qty: value,
-      total: value*this.state.price,
       errorQty: '',
     });
   };
@@ -61,22 +59,20 @@ export class NewItemForm extends React.Component {
     }
     return this.setState({
       price: value,
-      total: this.state.qty*value,
       errorPrice: '',
     });
   };
 
   handleSubmit = () => {
-    const { item, qty, price, total } = this.state;
+    const { item, qty, price } = this.state;
     const { dispatch } = this.props;
     if (item && qty && price) {
       this.setState({
         item: '',
         qty: '',
         price: '',
-        total: '',
       });
-      dispatch(addItem({ item, qty, price, total }));
+      dispatch(submitItem({ item, qty, price }));
     }
   }
 
