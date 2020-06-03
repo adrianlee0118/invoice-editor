@@ -20,7 +20,7 @@ const headerStyle = {
 
 const lineStyle = {
   fontSize: '15px',
-  fontWeight: "400", 
+  fontWeight: "600", 
   color: '#008080'
 }
 
@@ -30,7 +30,7 @@ const lineStyle = {
 export const LineItems = ({ listItems, dispatch }) => {
   const handleRemove = position => dispatch(deleteItem(position));
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     const { newVal } = event.target;
     if (isNaN(value)) {
       return this.setState({ errorPrice: "please enter a number" });
@@ -62,8 +62,8 @@ export const LineItems = ({ listItems, dispatch }) => {
           <TableRow key={index}>
             <TableRowColumn style={lineStyle} >{element.item}</TableRowColumn>
             <TableRowColumn style={lineStyle} >{element.qty}</TableRowColumn>
-            <TableRowColumn style={lineStyle} >{'$'+element.price.toLocaleString("en-US",{style: "currency", currency: "USD"})}</TableRowColumn>
-            <TableRowColumn style={lineStyle} >{element.total.toLocaleString("en-US",{style: "currency", currency: "USD"})}</TableRowColumn>
+            <TableRowColumn style={lineStyle} >{Number(element.price).toLocaleString("en-US",{style: "currency", currency: "USD"})}</TableRowColumn>
+            <TableRowColumn style={lineStyle} >{Number(element.total).toLocaleString("en-US",{style: "currency", currency: "USD"})}</TableRowColumn>
             <TableRowColumn style={{ width: 15 }}>
               <TrashIcon
                 style={{ width: 18, height: 18 }}
