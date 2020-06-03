@@ -29,13 +29,13 @@ const lineStyle = {
  * Renders the store line items portion of the invoice.
  */
 export const LineItems = ({ listItems, dispatch }) => {
+
+  //Dispatches a remove request to redux store for the item at the given position.
   const handleRemove = (position) => dispatch(deleteItem(position));
 
+  //Dispatches an edit request to redux store for the item at the given position, set value to zero if input is NaN.
   const handleChange = (event,position,type) => {
     const { value } = event.target;
-    if (isNaN(value)) {
-      //Handle error
-    }
     dispatch(editItem( position, value, type ));
   };
 
@@ -69,7 +69,7 @@ export const LineItems = ({ listItems, dispatch }) => {
                 style={lineStyle}
                 fullWidth={true}
                 defaultValue={element.qty}
-                errorText={ element.qty == NaN? 'Please enter a number' : '' }
+                errorText={ parseInt(element.qty) == NaN? 'Please enter a number' : '' }
                 onChange={(event) => handleChange(event, index, "qty")}
               />
             </TableRowColumn>
@@ -82,7 +82,7 @@ export const LineItems = ({ listItems, dispatch }) => {
                   style: "currency",
                   currency: "USD",
                 })}
-                errorText={ element.qty == NaN? 'Please enter a number' : '' }
+                errorText={ parseInt(element.price) == NaN? 'Please enter a number' : '' }
                 onChange={(event) => handleChange(event, index, "price")}
               />
             </TableRowColumn>
