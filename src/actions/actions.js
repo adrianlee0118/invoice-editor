@@ -1,6 +1,7 @@
 export const ADD_NEW_ITEM = 'ADD_NEW_ITEM';
-export const CALCULATE_TAX_TOTAL = 'CALCULATE_TAX_TOTAL';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const EDIT_ITEM = 'EDIT_ITEM';
+export const CALCULATE_TAX_TOTAL = 'CALCULATE_TAX_TOTAL';
 
 
 const addNewItem = (itemData) => {
@@ -16,6 +17,22 @@ const removeItem = (position) => {
     position,
   };
 };
+
+const changeItem = (position, newValue, type) => {
+  return {
+    type: EDIT_ITEM,
+    position,
+    newValue,
+    type,
+  }
+};
+
+const editItem = (position, newValue, type) => {
+  return (dispatch) => {
+    dispatch(changeItem(position,newValue,type));
+    dispatch(calculateTotal());
+  }
+}
 
 const calculateTotal = () => {
   return {
@@ -36,7 +53,6 @@ const submitItem = ({ item, qty, price }) => {
   };
 };
 
-// eslint-disable-next-line
 const deleteItem = (position) => {
   return (dispatch) => {
     dispatch(removeItem(position));
@@ -47,6 +63,8 @@ const deleteItem = (position) => {
 
 export {
   submitItem,
+  editItem,
+  changeItem,
   calculateTotal,
   deleteItem,
   addNewItem,
