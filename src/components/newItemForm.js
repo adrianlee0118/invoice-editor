@@ -95,7 +95,7 @@ export class InputInvoice extends React.Component {
     return (
       <div style={styles}>
         <Paper style={styles.paper}>
-          <Table height="50px">
+          <Table height="70px">
             <TableBody displayRowCheckbox={false}>
               <TableRow>
                 <TableRowColumn>

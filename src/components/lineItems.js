@@ -33,6 +33,9 @@ export const LineItems = ({ listItems, dispatch }) => {
 
   const handleChange = (event,position,type) => {
     const { value } = event.target;
+    if (isNaN(value)) {
+      //Handle error
+    }
     dispatch(editItem( position, value, type ));
   };
 
@@ -66,6 +69,7 @@ export const LineItems = ({ listItems, dispatch }) => {
                 style={lineStyle}
                 fullWidth={true}
                 defaultValue={element.qty}
+                errorText={ element.qty == NaN? 'Please enter a number' : '' }
                 onChange={(event) => handleChange(event, index, "qty")}
               />
             </TableRowColumn>
@@ -78,6 +82,7 @@ export const LineItems = ({ listItems, dispatch }) => {
                   style: "currency",
                   currency: "USD",
                 })}
+                errorText={ element.qty == NaN? 'Please enter a number' : '' }
                 onChange={(event) => handleChange(event, index, "price")}
               />
             </TableRowColumn>
