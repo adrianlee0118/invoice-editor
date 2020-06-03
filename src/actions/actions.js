@@ -1,6 +1,6 @@
 export const ADD_NEW_ITEM = 'ADD_NEW_ITEM';
 export const REMOVE_ITEM = 'REMOVE_ITEM';
-export const EDIT_ITEM = 'EDIT_ITEM';
+export const CHANGE_ITEM = 'CHANGE_ITEM';
 export const CALCULATE_TAX_TOTAL = 'CALCULATE_TAX_TOTAL';
 
 
@@ -20,7 +20,7 @@ const removeItem = (position) => {
 
 const changeItem = (position, newValue, type) => {
   return {
-    type: EDIT_ITEM,
+    type: CHANGE_ITEM,
     position,
     newValue,
     type,

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_NEW_ITEM, CALCULATE_TAX_TOTAL, REMOVE_ITEM } from '../actions/actions';
+import { ADD_NEW_ITEM, REMOVE_ITEM, CHANGE_ITEM, CALCULATE_TAX_TOTAL } from '../actions/actions';
 
 const initalState = {
   listItems: [],
@@ -23,6 +23,23 @@ const invoiceReducer = (state = initalState, action) => {
       return {
         ...state,
         listItems: state.listItems.filter((item, index) => index !== action.position),
+      };
+    
+    case CHANGE_ITEM:
+      const pos = action.position;  
+      const val = action.newValue;
+      const type = action.type;
+      return {
+        ...state,
+        listItems: state.listItems.map((item, index) => {
+            if (index == pos){
+              if (type == 'item')
+                item.item = val;
+              else
+                item.qty = val;
+            }
+          } 
+        ),
       };
 
     case CALCULATE_TAX_TOTAL:
