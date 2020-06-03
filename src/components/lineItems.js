@@ -30,7 +30,7 @@ const lineStyle = {
 export const LineItems = ({ listItems, dispatch }) => {
   const handleRemove = position => dispatch(deleteItem(position));
 
-  const handleChange = event => {
+  const handleChange = (event, position, type) => {
     const { newVal } = event.target;
     if (isNaN(value)) {
       return this.setState({ errorPrice: "please enter a number" });
