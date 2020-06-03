@@ -33,7 +33,8 @@ export const LineItems = ({ listItems, dispatch }) => {
   //Dispatches a remove request to redux store for the item at the given position.
   const handleRemove = (position) => dispatch(deleteItem(position));
 
-  //Dispatches an edit request to redux store for the item at the given position, set value to zero if input is NaN.
+  //Dispatches an edit request to redux store for the item at the given position.
+  //If the event target is NaN, a string is sent through action and reducer instead that triggers the 'Please enter a number' prompt in the line item's total field, and the line item is excluded from the calculation of overall total.
   const handleChange = (event,position,type) => {
     const { value } = event.target;
     dispatch(editItem( position, value, type ));
@@ -69,7 +70,6 @@ export const LineItems = ({ listItems, dispatch }) => {
                 style={lineStyle}
                 fullWidth={true}
                 defaultValue={element.qty}
-                errorText={ isNaN(element.qty)? 'Please enter a number' : '' }
                 onChange={(event) => handleChange(event, index, "qty")}
               />
             </TableRowColumn>
@@ -82,12 +82,12 @@ export const LineItems = ({ listItems, dispatch }) => {
                   style: "currency",
                   currency: "USD",
                 })}
-                errorText={ isNaN(element.price)? 'Please enter a number' : '' }
                 onChange={(event) => handleChange(event, index, "price")}
               />
             </TableRowColumn>
             <TableRowColumn style={lineStyle}>
-              {Number(element.total).toLocaleString("en-US", {
+              { isNaN(element.total)? 'Please enter a number' :
+                Number(element.total).toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
               })}

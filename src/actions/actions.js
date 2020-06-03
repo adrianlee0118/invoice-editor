@@ -64,7 +64,7 @@ const editItem = ( position, newValue, type ) => {
     newValue = newValue.substr(1);
     if (newValue.slice(-1) == '.') newValue = newValue.slice(0, -1);
   }
-  newValue = parseFloat(newValue);
+  newValue = isNaN(newValue)? 'a' : parseFloat(newValue);
   return (dispatch) => {
     dispatch(changeItem( position, newValue, type ));
     dispatch(calculateTotal());
