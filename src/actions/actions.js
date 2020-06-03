@@ -7,6 +7,8 @@ export const CALCULATE_TAX_TOTAL = 'CALCULATE_TAX_TOTAL';
 /**
  * Functions enable user inputs to be transferred to reducer so that state can be modified and app re-rendered.
  */
+
+//Submitting a new item causes the item to be added and totals to be re-calculated.
 const addNewItem = (itemData) => {
   return {
     type: ADD_NEW_ITEM,
@@ -27,6 +29,7 @@ const submitItem = ({ item, qty, price }) => {
   };
 };
 
+//Removing an item causes the list to be shortened and totals to be re-calculated.
 const removeItem = (position) => {
   return {
     type: REMOVE_ITEM,
@@ -41,6 +44,7 @@ const deleteItem = (position) => {
   };
 };
 
+//Changing an item causes the list to be updated and totals to be re-calculated.
 const changeItem = (position, newValue, type) => {
   return {
     type: CHANGE_ITEM,
@@ -57,6 +61,7 @@ const editItem = (position, newValue, type) => {
   }
 }
 
+//Triggers re-calculation of totals, fires every time the state changes from addding, removing or changing state elements.
 const calculateTotal = () => {
   return {
     type: CALCULATE_TAX_TOTAL,
