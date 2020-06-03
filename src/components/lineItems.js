@@ -69,7 +69,7 @@ export const LineItems = ({ listItems, dispatch }) => {
                 style={lineStyle}
                 fullWidth={true}
                 defaultValue={element.qty}
-                errorText={ parseInt(element.qty) == NaN? 'Please enter a number' : '' }
+                errorText={ isNaN(element.qty)? 'Please enter a number' : '' }
                 onChange={(event) => handleChange(event, index, "qty")}
               />
             </TableRowColumn>
@@ -82,7 +82,7 @@ export const LineItems = ({ listItems, dispatch }) => {
                   style: "currency",
                   currency: "USD",
                 })}
-                errorText={ parseInt(element.price) == NaN? 'Please enter a number' : '' }
+                errorText={ isNaN(element.price)? 'Please enter a number' : '' }
                 onChange={(event) => handleChange(event, index, "price")}
               />
             </TableRowColumn>
