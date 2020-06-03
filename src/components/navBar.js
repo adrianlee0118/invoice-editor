@@ -6,7 +6,7 @@ import AppBar from 'material-ui/AppBar';
 */
 const NavBar = () => (
   <AppBar
-    style={{ background: '#000000' }}
+    style={{ background: '#000000', padding: '30px' }}
     title="React-Redux Invoice Editor"
     showMenuIconButton={false}
   />
