@@ -16,6 +16,8 @@ const addNewItem = (itemData) => {
 };
 
 const submitItem = ({ item, qty, price }) => {
+  qty = parseFloat(qty);
+  price = parseFloat(price);
   const itemData = {
     item,
     qty,
@@ -44,19 +46,27 @@ const deleteItem = (position) => {
 };
 
 //Changing an item causes the list to be updated and totals to be re-calculated.
-const changeItem = (position, newValue, type) => {
-  console.log('Change item called in actions. Next is reducer.')
+const changeItem = ( position, newValue, type ) => {
+  const itemData = {
+    position,
+    type,
+    newValue,
+  };
   return {
     type: CHANGE_ITEM,
-    position,
-    newValue,
-    type,
+    itemData,
   };
 };
 
-const editItem = (position, newValue, type) => {
+const editItem = ( position, newValue, type ) => {
+  position = parseInt(position);
+  if (type == 'price'){
+    newValue = newValue.substr(1);
+    if (newValue.slice(-1) == '.') newValue = newValue.slice(0, -1);
+  }
+  newValue = parseFloat(newValue);
   return (dispatch) => {
-    dispatch(changeItem(position, newValue, type));
+    dispatch(changeItem( position, newValue, type ));
     dispatch(calculateTotal());
   };
 };

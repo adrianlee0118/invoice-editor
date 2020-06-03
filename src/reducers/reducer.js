@@ -20,7 +20,6 @@ const invoiceReducer = (state = initalState, action) => {
   switch (action.type) {
     //Return state where listItems has been replaced with listItems concatenated with itemData passed from the action.
     case ADD_NEW_ITEM:
-      console.log('add item triggered');
       return {
         ...state,
         listItems: [...state.listItems, action.itemData],
@@ -38,19 +37,16 @@ const invoiceReducer = (state = initalState, action) => {
     //Return the state where within listItems the item with the position specified by action has had its variable of type speficied by action replaced by a new value also specified by action.
     //Changes to quantity or price are supported.
     case CHANGE_ITEM:
-      console.log('Change item in reducer launched');
-      const pos = action.position;
-      const val = action.newValue;
-      const type = action.type;
-      console.log(pos+' '+val+' '+type);
+      const pos = action.itemData.position;
+      const val = action.itemData.newValue;
+      const type = action.itemData.type;
+      let newListItems = state.listItems;
+      if (type == "qty") newListItems[pos].qty = val;
+      else newListItems[pos].price = val;
+      newListItems[pos].total = newListItems[pos].price*newListItems[pos].qty;
       return {
         ...state,
-        listItems: state.listItems.map((item, index) => {
-          if (index == pos) {
-            if (type == "qty") item.qty = val;
-            else item.price = val;
-          }
-        }),
+        listItems: newListItems,
       };
 
     //Return the state where subTotal, tax and total have been overwritten by newly calculated values that are an accurate summary of listItems.

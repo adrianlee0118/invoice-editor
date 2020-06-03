@@ -33,11 +33,7 @@ export const LineItems = ({ listItems, dispatch }) => {
 
   const handleChange = (event,position,type) => {
     const { value } = event.target;
-    if (isNaN(value)) {
-      //return this.setState({ errorPrice: "please enter a number" });
-      //Handle error
-    }
-    dispatch(editItem(position, value, type));
+    dispatch(editItem( position, value, type ));
   };
 
   return (
