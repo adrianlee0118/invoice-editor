@@ -8,9 +8,9 @@ import {
 
 const initalState = {
   listItems: [],
-  subTotal: null,
-  tax: null,
-  total: null,
+  subTotal: 0,
+  tax: 0,
+  total: 0,
 };
 
 /**
