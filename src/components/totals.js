@@ -1,57 +1,73 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import {
-  Table,
-  TableBody,
-  TableRow,
-  TableRowColumn,
-} from 'material-ui/Table';
+import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { Table, TableBody, TableRow, TableRowColumn } from "material-ui/Table";
 
 const styles = {
   container: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    margin: '10px 20px 0px 20px',
+    display: "flex",
+    justifyContent: "flex-end",
+    margin: "10px 20px 0px 20px",
   },
   totalsContainer: {
     width: 400,
     height: 160,
-    margin: '0px 30px 10px 0px',
+    margin: "0px 30px 10px 0px",
     borderWidth: 2,
-    borderStyle: 'solid',
+    borderStyle: "solid",
     borderRadius: 5,
   },
   headings: {
-    fontSize: '16px',
-    fontWeight: '600',
+    fontSize: "16px",
+    fontWeight: "600",
   },
   values: {
-    fontSize: '16px',
-    fontWeight: '600',
-    color: '#816687'
-  }
+    fontSize: "16px",
+    fontWeight: "600",
+    color: "#816687",
+  },
 };
 
 /*
  * Renders the totals section of the invoice.
-*/
+ */
 export const Totals = ({ subTotal, tax, total }) => (
   <div style={styles.container}>
     <div style={styles.totalsContainer}>
       <Table>
         <TableBody displayRowCheckbox={false}>
-          <TableRow >
-            <TableRowColumn style={styles.headings} >Subtotal</TableRowColumn>
-            <TableRowColumn style={styles.values} >{subTotal ? subTotal.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
+          <TableRow>
+            <TableRowColumn style={styles.headings}>Subtotal</TableRowColumn>
+            <TableRowColumn style={styles.values}>
+              {subTotal
+                ? subTotal.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })
+                : "$"}
+            </TableRowColumn>
           </TableRow>
           <TableRow>
-            <TableRowColumn style={styles.headings} >Tax (5%)</TableRowColumn>
-            <TableRowColumn style={styles.values} >{tax ? tax.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
+            <TableRowColumn style={styles.headings}>Tax (5%)</TableRowColumn>
+            <TableRowColumn style={styles.values}>
+              {tax
+                ? tax.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })
+                : "$"}
+            </TableRowColumn>
           </TableRow>
           <TableRow>
-            <TableRowColumn style={styles.headings} >Total</TableRowColumn>
-            <TableRowColumn style={styles.values} >{total ? total.toLocaleString("en-US",{style: "currency", currency: "USD"}) : '$'}</TableRowColumn>
+            <TableRowColumn style={styles.headings}>Total</TableRowColumn>
+            <TableRowColumn style={styles.values}>
+              {total
+                ? total.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })
+                : "$"}
+            </TableRowColumn>
           </TableRow>
         </TableBody>
       </Table>
@@ -74,4 +90,3 @@ Totals.propTypes = {
 };
 
 export default connect(mapStateToProps)(Totals);
-

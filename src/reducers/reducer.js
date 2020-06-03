@@ -13,7 +13,7 @@ const initalState = {
   total: 0,
 };
 
-/**
+/*
  * Handle actions/events related to the invoice line items.
  */
 const invoiceReducer = (state = initalState, action) => {
@@ -38,12 +38,16 @@ const invoiceReducer = (state = initalState, action) => {
     //Changes to quantity or price are supported.
     case CHANGE_ITEM:
       const pos = action.itemData.position;
-      const val = isNaN(action.itemData.newValue)? 0 : action.itemData.newValue;
+      const val = isNaN(action.itemData.newValue)
+        ? 0
+        : action.itemData.newValue;
       const type = action.itemData.type;
       let newListItems = [...state.listItems];
       if (type == "qty") newListItems[pos].qty = val;
       else newListItems[pos].price = val;
-      newListItems[pos].total = isNaN(action.itemData.newValue)? 'a' : newListItems[pos].price*newListItems[pos].qty;
+      newListItems[pos].total = isNaN(action.itemData.newValue)
+        ? "a"
+        : newListItems[pos].price * newListItems[pos].qty;
       return {
         ...state,
         listItems: newListItems,
@@ -53,7 +57,7 @@ const invoiceReducer = (state = initalState, action) => {
     //Called immediately after state is changed on add, remove or change within listItems.
     case CALCULATE_TAX_TOTAL:
       const subTotal = state.listItems.reduce(
-        (acc, item) => acc + (isNaN(item.total)? 0 : item.total),
+        (acc, item) => acc + (isNaN(item.total) ? 0 : item.total),
         0
       );
       const tax = Number(((subTotal / 100) * 5).toFixed(2));

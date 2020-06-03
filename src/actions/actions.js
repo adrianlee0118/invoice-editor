@@ -46,7 +46,7 @@ const deleteItem = (position) => {
 };
 
 //Changing an item causes the list to be updated and totals to be re-calculated.
-const changeItem = ( position, newValue, type ) => {
+const changeItem = (position, newValue, type) => {
   const itemData = {
     position,
     type,
@@ -58,15 +58,15 @@ const changeItem = ( position, newValue, type ) => {
   };
 };
 
-const editItem = ( position, newValue, type ) => {
+const editItem = (position, newValue, type) => {
   position = parseInt(position);
-  if (type == 'price'){
+  if (type == "price") {
     newValue = newValue.substr(1);
-    if (newValue.slice(-1) == '.') newValue = newValue.slice(0, -1);
+    if (newValue.slice(-1) == ".") newValue = newValue.slice(0, -1);
   }
-  newValue = isNaN(newValue)? 'a' : parseFloat(newValue);
+  newValue = isNaN(newValue) ? "a" : parseFloat(newValue);
   return (dispatch) => {
-    dispatch(changeItem( position, newValue, type ));
+    dispatch(changeItem(position, newValue, type));
     dispatch(calculateTotal());
   };
 };

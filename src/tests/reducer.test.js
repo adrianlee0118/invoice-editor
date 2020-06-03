@@ -7,7 +7,6 @@ import {
 } from "./actions/actions";
 
 describe("Invoice reducer testing", () => {
-    
   /*
    * Check that the initial state is as stipulated in reducer file.
    */
@@ -19,7 +18,6 @@ describe("Invoice reducer testing", () => {
       total: 0,
     });
   });
-
 
   /*
    * Check that ADD_NEW_ITEM request modifies the state as expected. Note: ADD_NEW_ITEM does not re-calculate the totals.
@@ -62,7 +60,6 @@ describe("Invoice reducer testing", () => {
 
     //TODO: Test more combinations of initial state, payload and expected new state after adding.
   });
-
 
   /*
    * Check that REMOVE_ITEM request modifies the state as expected. Note: REMOVE_ITEM does not re-calculate the totals.
@@ -113,7 +110,6 @@ describe("Invoice reducer testing", () => {
 
     //TODO: Test more combinations of initial state, payload and expected new state after removing.
   });
-
 
   /*
    * Check that CHANGE_ITEM request modifies the state as expected. Note: CHANGE_ITEM does not re-calculate the totals.
@@ -174,7 +170,6 @@ describe("Invoice reducer testing", () => {
 
     //TODO: Test more combinations of initial state, payload and expected new state after editing line items.
   });
-
 
   /*
    * Check that CALCULATE_TAX_TOTAL updates the totals

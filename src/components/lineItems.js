@@ -29,6 +29,7 @@ const lineStyle = {
  * Renders the store line items portion of the invoice.
  */
 export const LineItems = ({ listItems, dispatch }) => {
+  
   //Dispatches a remove request to redux store for the item at the given position.
   const handleRemove = (position) => dispatch(deleteItem(position));
 
