@@ -86,8 +86,6 @@ export class InputInvoice extends React.Component {
     }
   };
 
-  handleClear = () => this.setState({ item: "", qty: "", price: "" });
-
   render() {
     return (
       <div style={styles}>
@@ -103,6 +101,7 @@ export class InputInvoice extends React.Component {
                     errorText={this.state.errorItem}
                     onChange={this.handleChangeItem}
                     placeholder="New Item"
+                    variant="outlined"
                   />
                 </TableRowColumn>
                 <TableRowColumn>
@@ -112,6 +111,7 @@ export class InputInvoice extends React.Component {
                     value={this.state.qty}
                     errorText={this.state.errorQty}
                     onChange={this.handleChangeQty}
+                    variant="outlined"
                   />
                 </TableRowColumn>
                 <TableRowColumn>
@@ -121,6 +121,7 @@ export class InputInvoice extends React.Component {
                     value={this.state.price}
                     errorText={this.state.errorPrice}
                     onChange={this.handleChangePrice}
+                    variant="outlined"
                   />
                 </TableRowColumn>
                 <TableRowColumn>

@@ -49,6 +49,7 @@ export const LineItems = ({ listItems, dispatch }) => {
         </TableRow>
       </TableHeader>
       <TableBody displayRowCheckbox={false}>
+
         {listItems.map((element, index) => (
           <TableRow key={index}>
             <TableRowColumn style={lineStyle} >{element.item}</TableRowColumn>
@@ -64,6 +65,7 @@ export const LineItems = ({ listItems, dispatch }) => {
             </TableRowColumn>
           </TableRow>
         ))}
+        
       </TableBody>
     </Table>
   );

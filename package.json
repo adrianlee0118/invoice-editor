@@ -34,7 +34,7 @@
   "dependencies": {
     "@material-ui/icons": "^4.9.1",
     "coveralls": "^3.0.1",
-    "material-ui": "^0.20.1",
+    "material-ui": "^0.20.2",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.13.1",
