@@ -40,7 +40,7 @@ const invoiceReducer = (state = initalState, action) => {
       const pos = action.itemData.position;
       const val = action.itemData.newValue;
       const type = action.itemData.type;
-      let newListItems = state.listItems;
+      let newListItems = [...state.listItems];
       if (type == "qty") newListItems[pos].qty = val;
       else newListItems[pos].price = val;
       newListItems[pos].total = newListItems[pos].price*newListItems[pos].qty;
