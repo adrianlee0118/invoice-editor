@@ -38,6 +38,7 @@ export class InputInvoice extends React.Component {
     };
   }
 
+  //Sets newItemForm's state member of item to the specified name if it is a string consisting only of alphabetical characters.
   handleChangeItem = (event) => {
     const { value } = event.target;
     if (/\d/.test(value)) {
@@ -50,6 +51,8 @@ export class InputInvoice extends React.Component {
     });
   };
 
+  //Sets newItemForm's state member of qty to the specified quantity if it is a valid number.
+  //Fraction quantities are acceptable.
   handleChangeQty = (event) => {
     const { value } = event.target;
     if (isNaN(value)) {
@@ -62,6 +65,7 @@ export class InputInvoice extends React.Component {
     });
   };
 
+  //Sets newItemForm's state member of price to the specified quantity if it is a valid number.
   handleChangePrice = (event) => {
     const { value } = event.target;
     if (isNaN(value)) {
@@ -73,6 +77,7 @@ export class InputInvoice extends React.Component {
     });
   };
 
+  //Sends a dispatch request to change the app state by adding a new item.
   handleSubmit = () => {
     const { item, qty, price } = this.state;
     const { dispatch } = this.props;
