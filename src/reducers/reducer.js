@@ -29,6 +29,7 @@ const invoiceReducer = (state = initalState, action) => {
       };
     
     //Return the state where within listItems the item with the position specified by action has had its variable of type speficied by action replaced by a new value also specified by action.
+    //Changes to quantity or price are supported.
     case CHANGE_ITEM:
       const pos = action.position;  
       const val = action.newValue;
@@ -37,10 +38,10 @@ const invoiceReducer = (state = initalState, action) => {
         ...state,
         listItems: state.listItems.map((item, index) => {
             if (index == pos){
-              if (type == 'item')
-                item.item = val;
-              else
+              if (type == 'qty')
                 item.qty = val;
+              else
+                item.price = val;
             }
           } 
         ),
