@@ -1,8 +1,7 @@
-export const ADD_NEW_ITEM = 'ADD_NEW_ITEM';
-export const REMOVE_ITEM = 'REMOVE_ITEM';
-export const CHANGE_ITEM = 'CHANGE_ITEM';
-export const CALCULATE_TAX_TOTAL = 'CALCULATE_TAX_TOTAL';
-
+export const ADD_NEW_ITEM = "ADD_NEW_ITEM";
+export const REMOVE_ITEM = "REMOVE_ITEM";
+export const CHANGE_ITEM = "CHANGE_ITEM";
+export const CALCULATE_TAX_TOTAL = "CALCULATE_TAX_TOTAL";
 
 /**
  * Functions enable user inputs to be transferred to reducer so that state can be modified and app re-rendered.
@@ -51,15 +50,15 @@ const changeItem = (position, newValue, type) => {
     position,
     newValue,
     type,
-  }
+  };
 };
 
 const editItem = (position, newValue, type) => {
   return (dispatch) => {
-    dispatch(changeItem(position,newValue,type));
+    dispatch(changeItem(position, newValue, type));
     dispatch(calculateTotal());
-  }
-}
+  };
+};
 
 //Triggers re-calculation of totals, fires every time the state changes from addding, removing or changing state elements.
 const calculateTotal = () => {
@@ -67,7 +66,6 @@ const calculateTotal = () => {
     type: CALCULATE_TAX_TOTAL,
   };
 };
-
 
 export {
   submitItem,

@@ -23,10 +23,12 @@ const styles = {
     borderRadius: 5,
   },
   headings: {
-    fontWeight: 'bold',
+    fontSize: '16px',
+    fontWeight: '600',
   },
   values: {
-    fontWeight: 'bold',
+    fontSize: '16px',
+    fontWeight: '600',
     color: '#816687'
   }
 };
