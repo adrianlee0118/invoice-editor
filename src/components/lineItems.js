@@ -8,7 +8,7 @@ import {
   TableHeaderColumn,
   TableRow,
   TableRowColumn,
-  TextField
+  TextField,
 } from "material-ui";
 import TrashIcon from "material-ui/svg-icons/action/delete";
 import { deleteItem, editItem } from "../actions/actions";
@@ -29,15 +29,14 @@ const lineStyle = {
  * Renders the store line items portion of the invoice.
  */
 export const LineItems = ({ listItems, dispatch }) => {
-
   //Dispatches a remove request to redux store for the item at the given position.
   const handleRemove = (position) => dispatch(deleteItem(position));
 
   //Dispatches an edit request to redux store for the item at the given position.
   //If the event target is NaN, a string is sent through action and reducer instead that triggers the 'Please enter a number' prompt in the line item's total field, and the line item is excluded from the calculation of overall total.
-  const handleChange = (event,position,type) => {
+  const handleChange = (event, position, type) => {
     const { value } = event.target;
-    dispatch(editItem( position, value, type ));
+    dispatch(editItem(position, value, type));
   };
 
   return (
@@ -66,7 +65,7 @@ export const LineItems = ({ listItems, dispatch }) => {
             <TableRowColumn style={lineStyle}>{element.item}</TableRowColumn>
             <TableRowColumn>
               <TextField
-                id='qty'
+                id="qty"
                 style={lineStyle}
                 fullWidth={true}
                 defaultValue={element.qty}
@@ -75,7 +74,7 @@ export const LineItems = ({ listItems, dispatch }) => {
             </TableRowColumn>
             <TableRowColumn>
               <TextField
-                id='prc'
+                id="prc"
                 style={lineStyle}
                 fullWidth={true}
                 defaultValue={Number(element.price).toLocaleString("en-US", {
@@ -86,11 +85,12 @@ export const LineItems = ({ listItems, dispatch }) => {
               />
             </TableRowColumn>
             <TableRowColumn style={lineStyle}>
-              { isNaN(element.total)? 'Please enter a number' :
-                Number(element.total).toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD",
-              })}
+              {isNaN(element.total)
+                ? "Please enter a number"
+                : Number(element.total).toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD",
+                  })}
             </TableRowColumn>
             <TableRowColumn style={{ width: 15 }}>
               <TrashIcon
