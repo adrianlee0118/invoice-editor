@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "jest",
-    "test:watch": "jest --watch",
+    "test:watch": "npm test -- --watch",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   },
   "keywords": [],
