@@ -31,14 +31,13 @@ const lineStyle = {
 export const LineItems = ({ listItems, dispatch }) => {
   const handleRemove = (position) => dispatch(deleteItem(position));
 
-  const handleChange = (event,position,type,curVal) => {
-    if (isNaN(curVal)) {
+  const handleChange = (event,position,type) => {
+    const { value } = event.target;
+    if (isNaN(value)) {
       //return this.setState({ errorPrice: "please enter a number" });
       //Handle error
     }
-    console.log('handleChange called');
-    console.log(newVal);
-    dispatch(editItem(position, curVal, type));
+    dispatch(editItem(position, value, type));
   };
 
   return (
@@ -71,7 +70,7 @@ export const LineItems = ({ listItems, dispatch }) => {
                 style={lineStyle}
                 fullWidth={true}
                 defaultValue={element.qty}
-                onChange={(event) => handleChange(event, index, "qty", element.qty)}
+                onChange={(event) => handleChange(event, index, "qty")}
               />
             </TableRowColumn>
             <TableRowColumn>
@@ -83,7 +82,7 @@ export const LineItems = ({ listItems, dispatch }) => {
                   style: "currency",
                   currency: "USD",
                 })}
-                onChange={(event) => handleChange(event, index, "price", element.price)}
+                onChange={(event) => handleChange(event, index, "price")}
               />
             </TableRowColumn>
             <TableRowColumn style={lineStyle}>

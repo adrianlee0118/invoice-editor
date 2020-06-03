@@ -45,6 +45,7 @@ const deleteItem = (position) => {
 
 //Changing an item causes the list to be updated and totals to be re-calculated.
 const changeItem = (position, newValue, type) => {
+  console.log('Change item called in actions. Next is reducer.')
   return {
     type: CHANGE_ITEM,
     position,

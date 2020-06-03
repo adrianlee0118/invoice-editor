@@ -20,6 +20,7 @@ const invoiceReducer = (state = initalState, action) => {
   switch (action.type) {
     //Return state where listItems has been replaced with listItems concatenated with itemData passed from the action.
     case ADD_NEW_ITEM:
+      console.log('add item triggered');
       return {
         ...state,
         listItems: [...state.listItems, action.itemData],
@@ -37,9 +38,11 @@ const invoiceReducer = (state = initalState, action) => {
     //Return the state where within listItems the item with the position specified by action has had its variable of type speficied by action replaced by a new value also specified by action.
     //Changes to quantity or price are supported.
     case CHANGE_ITEM:
+      console.log('Change item in reducer launched');
       const pos = action.position;
       const val = action.newValue;
       const type = action.type;
+      console.log(pos+' '+val+' '+type);
       return {
         ...state,
         listItems: state.listItems.map((item, index) => {
