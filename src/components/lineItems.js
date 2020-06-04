@@ -62,11 +62,10 @@ export const LineItems = ({ listItems, dispatch }) => {
       </TableHeader>
       <TableBody displayRowCheckbox={false}>
         {listItems.map((element, index) => (
-          <TableRow key={index}>
+          <TableRow key={index+element.qty+element.price}>
             <TableRowColumn style={lineStyle}>{element.item}</TableRowColumn>
             <TableRowColumn>
               <TextField
-                id="qty"
                 style={lineStyle}
                 fullWidth={true}
                 defaultValue={element.qty}
@@ -75,7 +74,6 @@ export const LineItems = ({ listItems, dispatch }) => {
             </TableRowColumn>
             <TableRowColumn>
               <TextField
-                id="prc"
                 style={lineStyle}
                 fullWidth={true}
                 defaultValue={Number(element.price).toLocaleString("en-US", {
