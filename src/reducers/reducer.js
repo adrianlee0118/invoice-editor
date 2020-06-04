@@ -38,9 +38,7 @@ const invoiceReducer = (state = initalState, action) => {
     //Changes to quantity or price are supported.
     case CHANGE_ITEM:
       const pos = action.itemData.position;
-      const val = isNaN(action.itemData.newValue)
-        ? 0
-        : action.itemData.newValue;
+      const val = action.itemData.newValue;
       const type = action.itemData.type;
       let newListItems = [...state.listItems];
       if (type == "qty") newListItems[pos].qty = val;
