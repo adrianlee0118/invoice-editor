@@ -7,7 +7,8 @@
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "test": "jest",
     "test:watch": "npm test -- --watch",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "build": "webpack --mode development"
   },
   "keywords": [],
   "author": "Adrian Lee",
